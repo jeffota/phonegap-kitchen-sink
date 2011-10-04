@@ -53,12 +53,12 @@
             console.log('Failed to get contacts');
         };
 
-        var options    = new ContactFindOptions();
-        options.filter = '';
+        var filter       = [ 'displayName' ];
+        var options      = new ContactFindOptions();
+        options.filter   = '';
+        options.multiple = true;
 
-        var filter  = [ 'displayName' ];
-
-        navigator.service.contacts.find(filter, onSuccess, onFail, options);
+        navigator.contacts.find(filter, onSuccess, onFail, options);
     });
 
 })();
