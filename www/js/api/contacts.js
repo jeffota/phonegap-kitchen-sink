@@ -15,9 +15,8 @@
 
             // Sort contacts by last name
             contacts.sort(function(a, b) {
-                if (!a && !b) return  0;
-                if (!a)       return -1;
-                if (!b)       return  1;
+                if (!a.displayName) return -1;
+                if (!b.displayName) return  1;
 
                 a = lastName(a.displayName.toLowerCase());
                 b = lastName(b.displayName.toLowerCase());
