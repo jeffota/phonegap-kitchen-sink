@@ -9,20 +9,22 @@
             'width':  width  + 'px'
         });
 
+        // Default map is centered on Nitobi office
+        var map = new google.maps.Map(document.getElementById("map_canvas"), {
+            center:    new google.maps.LatLng(49.280, -123.105),
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            zoom:      12,
+        });
+
         var onSuccess = function(position) {
             console.log(position);
             var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-            var map = new google.maps.Map(document.getElementById("map_canvas"), {
-                zoom: 12,
-                center: latlng,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            });
-
             var marker = new google.maps.Marker({
-                position: latlng,
-                map: map,
-                title: "You"
+                animation: google.maps.Animation.DROP,
+                map:       map,
+                position:  latlng,
+                title:     'You are here'
             });
         };
 
